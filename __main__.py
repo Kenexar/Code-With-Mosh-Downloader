@@ -38,7 +38,6 @@ class LectureObj:
                 if s4.get("data-lecture-id") == self.lecture_id:
                     title = s3.find('div', class_='section-title').contents[2].getText().strip()
 
-
         s2 = soup.select_one('.course-sidebar')
         self.path = f"{s2.h2.text}/{title}/"
 
@@ -51,7 +50,7 @@ class LectureObj:
         return self.path
 
 
-def get_course_lecture_ids(course_id: str):
+def get_course_lecture_ids(course_id: str) -> dict:
     return_list = {}
     response = requests.get(f"https://codewithmosh.com/courses/enrolled/{course_id}", headers=header)
 
@@ -68,7 +67,7 @@ def get_course_lecture_ids(course_id: str):
     return return_list
 
 
-def get_course_lecture_pure_ids(course_id: str):
+def get_course_lecture_pure_ids(course_id: str) -> list:
     id_list = []
     response = requests.get(f"https://codewithmosh.com/courses/enrolled/{course_id}", headers=header)
 
@@ -84,10 +83,6 @@ def get_course_lecture_pure_ids(course_id: str):
 
 
 def get_courses_ids() -> list:
-    """Returns all course ids.
-    ids = get_courses_ids()
-    @:rtype list
-    """
     id_list = []
 
     response = requests.get("https://codewithmosh.com/courses/enrolled/240431", headers=header)
@@ -119,8 +114,7 @@ def download_video(link: str, path=""):
     if link == "":
         return
 
-    if not os.path.exists(path):
-        ensure_dir(path)
+    ensure_dir(path)
 
     r = requests.get(link, stream=True)
 
@@ -131,7 +125,7 @@ def download_video(link: str, path=""):
 
     print(path + file_name)
 
-    with alive_bar(title=f'Downloading "{file_name}"', bar='classic', monitor=False, elapsed=False) as bar:
+    with alive_bar(title=f'Downloading "{file_name}" ', bar='classic', monitor=False, elapsed=False) as bar:
         with open(path + file_name, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024 * 1024):
                 if chunk:
@@ -139,7 +133,7 @@ def download_video(link: str, path=""):
                     bar()
                     f.flush()
     end = time.time()
-    print(f"Done! File: {path + file_name} Time: {end - start:.2f} sec")
+    print(f"Done! File: {path + file_name} \nTime: {end - start:.2f} sec")
 
 
 def ensure_dir(file_path):
@@ -148,23 +142,15 @@ def ensure_dir(file_path):
         os.makedirs(directory)
 
 
-def create_dir(path):
-    try:
-        os.path.normpath(path)
-    except OSError:
-        print(OSError)
-    else:
-        print("Successfully created the directory %s " % path)
-
-
 def main():
-    for c_id in  get_courses_ids():
+    for c_id in get_courses_ids():
         for l_id in get_course_lecture_pure_ids(str(c_id)):
-            lctobj = LectureObj(str(c_id), str(l_id))
-            download_video(lctobj.download_link, "output/" + lctobj.path)
+            lct_obj = LectureObj(str(c_id), str(l_id))
+            download_video(lct_obj.download_link, "output/" + lct_obj.path)
 
 
 start = time.time()
+
 if __name__ == "__main__":
     main()
 
