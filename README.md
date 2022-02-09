@@ -1,4 +1,5 @@
 # Code-With-Mosh-Downloader
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ## ☁ Installation
 #### Prerequisites
 - #### Install Python Python3 (Installing Python 3 on Debian 9)
