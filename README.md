@@ -40,3 +40,5 @@ python3.8 --version
     ```shell
     sudo python3 __main__.py
     ```
+## License
+[MIT License](https://github.com/Kenexar/Code-With-Mosh-Downloader/blob/master/LICENSE)
