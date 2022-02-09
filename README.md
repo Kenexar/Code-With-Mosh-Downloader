@@ -32,7 +32,7 @@ python3.8 --version
     - open enrolled and then go to Header
     - copy the value of cookie:
 
-5. Create .env file, like in the example, and paste the cookie
+5. Create a .env file, like in the example, and paste the cookie
     ```env
     # .env example
     AUTH_COOKIE: 
