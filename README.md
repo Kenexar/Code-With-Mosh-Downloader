@@ -16,20 +16,21 @@ python3.8 --version
 ```
 [source of installation](https://cloudwafer.com/blog/installing-python-3-on-debian-9/)
 
-#### ⚡ How to run Run
+#### ⚡ How to run
 1. Clone the Repository
 2. Install packages
     ```shell
     sudo pip install -r req.txt
     ```
 4. Get you auth cookie:
-    - go to codewithmosh.com
+    - go to https://codewithmosh.com
     - login in to your account
-    - open codewithmosh.com/courses/enrolled
+    - open https://codewithmosh.com/courses/enrolled
     - open DevTools
     - go to Network tab
     - open enrolled and then go to Header
     - copy the value of cookie:
+
 5. Create .env file, like in the example, and paste the cookie
     ```env
     # .env example
