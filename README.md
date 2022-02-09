@@ -14,27 +14,28 @@ make
 sudo make altinstall
 python3.8 --version
 ```
-- ##### Install packages
-```shell
-sudo pip install -r req.txt
-```
+[source of installation](https://cloudwafer.com/blog/installing-python-3-on-debian-9/)
 
-#### Steps
+#### ⚡ How to run Run
 1. Clone the Repository
-2. Get you auth cookie:
-  - go to codewithmosh.com
-  - login in to your account
-  - open codewithmosh.com/courses/enrolled
-  - open DevTools
-  - go to Network tab
-  - open enrolled and then go to Header
-  - copy the value of cookie:
-3. Create .env file, like in the example, and paste the cookie
-```env
-# .env example
-AUTH_COOKIE: 
-```
+2. Install packages
+    ```shell
+    sudo pip install -r req.txt
+    ```
+4. Get you auth cookie:
+    - go to codewithmosh.com
+    - login in to your account
+    - open codewithmosh.com/courses/enrolled
+    - open DevTools
+    - go to Network tab
+    - open enrolled and then go to Header
+    - copy the value of cookie:
+5. Create .env file, like in the example, and paste the cookie
+    ```env
+    # .env example
+    AUTH_COOKIE: 
+    ```
 4. Last step run is to run __main__.py
-```shell
-sudo python3 __main__.py
-```
+    ```shell
+    sudo python3 __main__.py
+    ```
