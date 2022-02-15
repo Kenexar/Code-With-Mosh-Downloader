@@ -1,4 +1,5 @@
 # Code-With-Mosh-Downloader
+[![CodeFactor](https://www.codefactor.io/repository/github/kenexar/code-with-mosh-downloader/badge)](https://www.codefactor.io/repository/github/kenexar/code-with-mosh-downloader)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ## ☁ Installation
 #### Prerequisites
